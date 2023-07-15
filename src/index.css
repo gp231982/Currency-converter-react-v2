@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-size: 24px;
+  font-family: "Lato", sans-serif;
+  background-image: url(/public/imgs/converterBackground3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 1000px) {
+  body {
+    width: 100%;
+  }
+}
