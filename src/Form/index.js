@@ -7,14 +7,10 @@ const Form = ({
   handleSelectCurrencyToChange,
   handleInputMoneyChange,
   calculateResult,
-  exchangeRate,
-  tableDataFrom,
-  tableDataTo,
   selectedFrom,
   selectedTo,
-  classNametableDataFrom,
-  classNametableDataTo,
-  currencies,
+  classNameSelectedFrom,
+  classNameSelectedTo,
   moneyAmount,
   result,
   resetCalculator,
@@ -22,17 +18,13 @@ const Form = ({
   <CalcForm>
     <FieldSet>
       <FormItemsList
-        exchangeRate={exchangeRate}
-        tableDataFrom={tableDataFrom}
-        tableDataTo={tableDataTo}
         handleSelectCurrencyFromChange={handleSelectCurrencyFromChange}
         handleSelectCurrencyToChange={handleSelectCurrencyToChange}
         handleInputMoneyChange={handleInputMoneyChange}
         selectedFrom={selectedFrom}
         selectedTo={selectedTo}
-        classNametableDataFrom={classNametableDataFrom}
-        classNametableDataTo={classNametableDataTo}
-        currencies={currencies}
+        classNameSelectedFrom={classNameSelectedFrom}
+        classNameSelectedTo={classNameSelectedTo}
         moneyAmount={moneyAmount}
         calculateResult={calculateResult}
       />
@@ -41,9 +33,7 @@ const Form = ({
           calculateResult={calculateResult}
           result={result}
           type="submit"
-          disabled={
-            (moneyAmount && selectedFrom && selectedTo) === ""
-          }
+          disabled={(moneyAmount && selectedFrom && selectedTo) === ""}
           textContent="Oblicz"
         />
       }

@@ -4,17 +4,13 @@ import Form from "./Form";
 import { useState } from "react";
 import ActualDate from "./ActualDate";
 import InfoAfterDataLoad from "./InfoAfterDataLoad";
-import { currencies } from "./currencies";
 import useCustomFetch from "./useCustomFetch";
 
 function App() {
-  const [exchangeRate, setExchangeRate] = useState("");
-  const [tableDataFrom, settableDataFrom] = useState("");
-  const [tableDataTo, settableDataTo] = useState("");
   const [selectedFrom, setSelectedFrom] = useState("");
   const [selectedTo, setSelectedTo] = useState("");
-  const [classNametableDataFrom, setClassNametableDataFrom] = useState("");
-  const [classNametableDataTo, setClassNametableDataTo] = useState("");
+  const [classNameSelectedFrom, setclassNameSelectedFrom] = useState("");
+  const [classNameSelectedTo, setclassNameSelectedTo] = useState("");
   const [moneyAmount, setMoneyAmount] = useState("");
   const [result, setResult] = useState("");
   const [currenciesArray, isLoading, fetchedDate, failure] = useCustomFetch();
@@ -23,16 +19,16 @@ function App() {
     setSelectedFrom(selectedFrom);
 
     selectedFrom === ""
-      ? setClassNametableDataFrom("")
-      : setClassNametableDataFrom("active");
+      ? setclassNameSelectedFrom("")
+      : setclassNameSelectedFrom("active");
   };
 
   const handleSelectCurrencyToChange = (selectedTo) => {
     setSelectedTo(selectedTo);
 
     selectedTo === ""
-      ? setClassNametableDataTo("")
-      : setClassNametableDataTo("active");
+      ? setclassNameSelectedTo("")
+      : setclassNameSelectedTo("active");
   };
 
   const handleInputMoneyChange = (moneyAmount) => {
@@ -50,10 +46,6 @@ function App() {
 
     const result = ((moneyAmount * rateTo) / rateFrom).toFixed(2);
 
-    console.log(selectedFrom);
-    console.log(rateFrom);
-    console.log(rateTo);
-
     const calculation = `Za ${moneyAmount} ${selectedFrom} kupisz ${result} ${selectedTo}`;
 
     setResult(calculation);
@@ -61,13 +53,10 @@ function App() {
 
   const resetCalculator = () => {
     setMoneyAmount("");
-    settableDataFrom("");
-    settableDataTo("");
     setSelectedFrom("");
     setSelectedTo("");
-    setClassNametableDataFrom("");
-    setClassNametableDataTo("");
-    setExchangeRate("");
+    setclassNameSelectedFrom("");
+    setclassNameSelectedTo("");
     setResult("");
   };
 
@@ -84,9 +73,6 @@ function App() {
         <MainContainer>
           <ActualDate />
           <Form
-            exchangeRate={exchangeRate}
-            // tableDataFrom={tableDataFrom}
-            // tableDataTo={tableDataTo}
             moneyAmount={moneyAmount}
             handleSelectCurrencyFromChange={handleSelectCurrencyFromChange}
             handleSelectCurrencyToChange={handleSelectCurrencyToChange}
@@ -94,9 +80,8 @@ function App() {
             calculateResult={calculateResult}
             selectedFrom={selectedFrom}
             selectedTo={selectedTo}
-            classNametableDataFrom={classNametableDataFrom}
-            classNametableDataTo={classNametableDataTo}
-            currencies={currencies}
+            classNameSelectedFrom={classNameSelectedFrom}
+            classNameSelectedTo={classNameSelectedTo}
             result={result}
             resetCalculator={resetCalculator}
           />

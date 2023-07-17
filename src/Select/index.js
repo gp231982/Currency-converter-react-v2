@@ -7,11 +7,8 @@ const Select = ({
   selectedFrom,
   selectedTo,
   id,
-  tableDataFrom,
-  tableDataTo,
-  classNametableDataFrom,
-  classNametableDataTo,
-  currencies,
+  classNameSelectedFrom,
+  classNameSelectedTo,
 }) => {
   return (
     <MoneyInput
@@ -20,9 +17,9 @@ const Select = ({
       value={id === "currencyFrom" ? selectedFrom : selectedTo}
       className={
         id === "currencyFrom"
-          ? classNametableDataFrom
+          ? classNameSelectedFrom
           : id === "currencyTo"
-          ? classNametableDataTo
+          ? classNameSelectedTo
           : ""
       }
       required
@@ -32,14 +29,9 @@ const Select = ({
         id === "currencyFrom"
           ? (e) => handleSelectCurrencyFromChange(e.target.value)
           : (e) => handleSelectCurrencyToChange(e.target.value)
-          
       }
     >
-      {
-        <CurrencyOptions
-          currencies={currencies}
-        />
-      }
+      {<CurrencyOptions />}
     </MoneyInput>
   );
 };

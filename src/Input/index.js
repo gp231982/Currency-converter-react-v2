@@ -8,19 +8,15 @@ const Input = ({
   placeholder,
   autofocus,
   readonly,
-  exchangeRate,
   handleInputMoneyChange,
   moneyAmount,
 }) => {
   return (
     <MoneyInput
       className={`input ${
-        (id === "currencyRatio" && exchangeRate !== "") ||
-        (id === "money" && moneyAmount !== "")
-          ? "active"
-          : ""
+        id === "money" && moneyAmount !== "" ? "active" : ""
       }`}
-      value={`${id === "currencyRatio" ? exchangeRate : moneyAmount}`}
+      value={id === "money" && moneyAmount}
       onChange={(e) => handleInputMoneyChange(e.target.value)}
       id={id}
       type={type}

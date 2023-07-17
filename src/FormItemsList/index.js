@@ -10,12 +10,8 @@ const FormItemsList = ({
   handleInputMoneyChange,
   selectedFrom,
   selectedTo,
-  exchangeRate,
-  tableDataFrom,
-  tableDataTo,
-  classNametableDataFrom,
-  classNametableDataTo,
-  currencies,
+  classNameSelectedFrom,
+  classNameSelectedTo,
   moneyAmount,
 }) => (
   <List className="formItemsList__ul">
@@ -40,40 +36,27 @@ const FormItemsList = ({
       spanText={"Przelicz z:*"}
       select={
         <Select
-          exchangeRate={exchangeRate}
-          tableDataFrom={tableDataFrom}
-          tableDataTo={tableDataTo}
           id={"currencyFrom"}
           handleSelectCurrencyFromChange={handleSelectCurrencyFromChange}
           selectedFrom={selectedFrom}
-          classNametableDataFrom={classNametableDataFrom}
-          classNametableDataTo={classNametableDataTo}
-          currencies={currencies}
+          classNameSelectedFrom={classNameSelectedFrom}
+          classNameSelectedTo={classNameSelectedTo}
         />
       }
-      tableDataFrom={tableDataFrom}
-      tableDataTo={tableDataTo}
     />
     <SelectListItem
       labelText={"currencyTo"}
       spanText={"Przelicz na:*"}
       select={
         <Select
-          exchangeRate={exchangeRate}
-          tableDataFrom={tableDataFrom}
-          tableDataTo={tableDataTo}
           id={"currencyTo"}
           handleSelectCurrencyToChange={handleSelectCurrencyToChange}
           selectedTo={selectedTo}
-          classNametableDataFrom={classNametableDataFrom}
-          classNametableDataTo={classNametableDataTo}
-          currencies={currencies}
+          classNameSelectedFrom={classNameSelectedFrom}
+          classNameSelectedTo={classNameSelectedTo}
         />
       }
-      tableDataFrom={tableDataFrom}
-      tableDataTo={tableDataTo}
     />
-  
   </List>
 );
 
