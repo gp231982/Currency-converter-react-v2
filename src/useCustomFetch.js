@@ -12,13 +12,12 @@ const useCustomFetch = () => {
         setIsLoading(true);
         setFailure("");
 
-        const apiEndpoint = `https://api.exchangerate.host/latest`;
+        // const apiEndpoint = `https://api.exchangerate.host/latest`;
+        const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
         const response = await fetch(apiEndpoint);
         const data = await response.json();
         console.log(data);
         setCurrenciesArray(Object.entries(data.rates));
-        console.log(currenciesArray);
-        console.log(data.rates);
         setFetchedDate(data.date);
         setIsLoading(false);
       } catch (error) {
@@ -26,10 +25,9 @@ const useCustomFetch = () => {
         setIsLoading(false);
         console.error(error);
       }
-      console.log(currenciesArray);
     };
     setTimeout(fetchData, 2000);
-  }, []);
+  },[]);
 
   return [currenciesArray, isLoading, fetchedDate, failure];
 };
