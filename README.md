@@ -8,7 +8,9 @@ https://gp231982.github.io/Currency-converter-react-v2/
 
 ## Demo
 
-https://github.com/gp231982/Currency-calculator-react/assets/68773588/96559c08-2038-42fd-8878-86e146879a6d
+https://github.com/gp231982/Currency-converter-react-v2/assets/68773588/3a50eca8-4402-401d-99a3-90704fa96140
+
+
 
 ## Technologies and conventions
 
