@@ -1,7 +1,7 @@
 import "./App.css";
 import MainContainer from "./MainContainer";
 import Form from "./MainContainer/Form";
-import { useState} from "react";
+import { useState } from "react";
 import ActualDate from "./MainContainer/ActualDate";
 import InfoAfterDataLoad from "./MainContainer/InfoAfterDataLoad";
 import useCustomFetch from "./useCustomFetch";
@@ -13,8 +13,7 @@ function App() {
   const [classNameSelectedTo, setclassNameSelectedTo] = useState("");
   const [moneyAmount, setMoneyAmount] = useState("");
   const [result, setResult] = useState("");
-  const [currenciesArray, isLoading, fetchedDate, failure] = useCustomFetch();
-
+  const { currenciesArray, isLoading, fetchedDate, failure } = useCustomFetch();
 
   const handleSelectCurrencyFromChange = (selectedFrom) => {
     setSelectedFrom(selectedFrom);
@@ -44,11 +43,8 @@ function App() {
     const rateTo = currenciesArray.find(
       (currency) => currency[0] === selectedTo
     )[1];
-
     const result = ((moneyAmount * rateTo) / rateFrom).toFixed(2);
-
     const calculation = `Za ${moneyAmount} ${selectedFrom} kupisz ${result} ${selectedTo}`;
-
     setResult(calculation);
   };
 

@@ -1,33 +1,39 @@
-import { useEffect, useState } from "react";
+//
+import { useState, useEffect } from "react";
 
 const useCustomFetch = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [fetchedDate, setFetchedDate] = useState("");
-  const [failure, setFailure] = useState("");
-  const [currenciesArray, setCurrenciesArray] = useState([]);
+  const [state, setState] = useState({
+    isLoading: true,
+    fetchedDate: "",
+    failure: false,
+    currenciesArray: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true);
-        setFailure("");
+        setState((prevState) => ({ ...prevState, isLoading: true, failure: false }));
         const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
         const response = await fetch(apiEndpoint);
         const data = await response.json();
-        console.log(data);
-        setCurrenciesArray(Object.entries(data.rates));
-        setFetchedDate(data.date);
-        setIsLoading(false);
+        setState((prevState) => ({
+          ...prevState,
+          isLoading: false,
+          fetchedDate: data.date,
+          currenciesArray: Object.entries(data.rates),
+        }));
       } catch (error) {
-        setFailure(true);
-        setIsLoading(false);
-        console.error(error);
+        setState((prevState) => ({
+          ...prevState,
+          failure: true,
+          isLoading: false,
+        }));
       }
     };
     setTimeout(fetchData, 2000);
-  },[]);
+  }, []);
 
-  return [currenciesArray, isLoading, fetchedDate, failure];
+  return state;
 };
 
 export default useCustomFetch;
