@@ -1,4 +1,4 @@
-# currency-calculator-react
+# currency-calculator-react-v2
 
 ## Description
 
