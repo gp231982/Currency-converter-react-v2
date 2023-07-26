@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple react currency calculator with interactions (one can select currency values from the list of options in the From component or can just click the proper table-data field of the Table component and the actual state of the choices is marked with changed background color of active fields). Additionally one must input the amount of money he wants to check. The calculator has two buttons: a calculation button to calculate the results based on delivered data from the Form and a reset button to reset the application. The calculator was created with the create-react-app package (refactored from the currency calculator repository made in Vanilla js). The converter is fetching the data from public API just after DOM is installed and fills the table with actual rates from European Central Bank and shows the valid date. At the time of loading the data, and in case of failure the user is informed about the actual state with a friendly message.
+This is a simple react currency calculator with interactions. One selects the currency bought and the currency sold from the list of options in the From component and inputs the amount of money to be paid. The calculator has two buttons: a calculation button to calculate the results based on delivered data from the Form and a reset button to reset the application. The calculator is fetching the data from public API and shows the valid date. At the time of loading the data, and in case of failure the user is informed about the actual state with an aproppriate message.
 
 https://gp231982.github.io/Currency-converter-react-v2/
 
