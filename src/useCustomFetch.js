@@ -11,8 +11,6 @@ const useCustomFetch = () => {
       try {
         setIsLoading(true);
         setFailure("");
-
-        // const apiEndpoint = `https://api.exchangerate.host/latest`;
         const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
         const response = await fetch(apiEndpoint);
         const data = await response.json();
