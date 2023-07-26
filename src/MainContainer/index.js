@@ -1,4 +1,3 @@
-
 import { Container } from "./styled";
 
 const MainContainer = ({ children }) => (

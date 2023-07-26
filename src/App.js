@@ -1,9 +1,9 @@
 import "./App.css";
 import MainContainer from "./MainContainer";
-import Form from "./Form";
-import { useState } from "react";
-import ActualDate from "./ActualDate";
-import InfoAfterDataLoad from "./InfoAfterDataLoad";
+import Form from "./MainContainer/Form";
+import { useState} from "react";
+import ActualDate from "./MainContainer/ActualDate";
+import InfoAfterDataLoad from "./MainContainer/InfoAfterDataLoad";
 import useCustomFetch from "./useCustomFetch";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
   const [moneyAmount, setMoneyAmount] = useState("");
   const [result, setResult] = useState("");
   const [currenciesArray, isLoading, fetchedDate, failure] = useCustomFetch();
+
 
   const handleSelectCurrencyFromChange = (selectedFrom) => {
     setSelectedFrom(selectedFrom);

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Info, FetchingDate } from "./styled";
 
 const InfoAfterDataLoad = ({ failure, isLoading, fetchedDate }) => {
@@ -7,7 +8,7 @@ const InfoAfterDataLoad = ({ failure, isLoading, fetchedDate }) => {
         <>
           Kursy walut pobierane są z Europejskiego Banku Centralnego
           <br />
-          aktualne na dzień {""}
+          aktualne na dzień{" "}
           <FetchingDate className="fetchedDate">{fetchedDate}</FetchingDate>
         </>
       )}

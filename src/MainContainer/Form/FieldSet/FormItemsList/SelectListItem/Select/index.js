@@ -1,5 +1,5 @@
-import CurrencyOptions from "../CurrencyOptions";
-import { MoneyInput } from "../Input/styled";
+import CurrencyOptions from "../../../../../../CurrencyOptions";
+import { MoneyInput } from "../../InputListItem/Input/styled";
 
 const Select = ({
   handleSelectCurrencyFromChange,

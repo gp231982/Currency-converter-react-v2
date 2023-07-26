@@ -1,5 +1,5 @@
-import FieldSet from "../FieldSet";
-import FormItemsList from "../FormItemsList";
+import FieldSet from "./FieldSet";
+import FormItemsList from "./FieldSet/FormItemsList";
 import { CalcForm, Result, StyledButton } from "./styled";
 
 const Form = ({

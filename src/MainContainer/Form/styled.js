@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import Button from "../Button";
+import Button from "./FieldSet/Button";
 
 export const CalcForm = styled.form`
   display: block;

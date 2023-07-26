@@ -1,7 +1,7 @@
-import InputListItem from "../InputListItem";
-import SelectListItem from "../SelectListItem";
-import Input from "../Input";
-import Select from "../Select";
+import InputListItem from "./InputListItem";
+import SelectListItem from "./SelectListItem";
+import Input from "./InputListItem/Input";
+import Select from "./SelectListItem/Select";
 import { List } from "./styled";
 
 const FormItemsList = ({

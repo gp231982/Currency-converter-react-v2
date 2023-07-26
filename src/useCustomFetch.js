@@ -20,7 +20,6 @@ const useCustomFetch = () => {
         console.log(currenciesArray);
         console.log(data.rates);
         setFetchedDate(data.date);
-
         setIsLoading(false);
       } catch (error) {
         setFailure(true);
