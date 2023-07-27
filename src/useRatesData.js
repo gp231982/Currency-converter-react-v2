@@ -1,4 +1,3 @@
-//
 import { useState, useEffect } from "react";
 
 const useRatesData = () => {
@@ -13,7 +12,7 @@ const useRatesData = () => {
       try {
         setState((prevState) => ({
           ...prevState,
-          status:"isLoading",
+          status: "isLoading",
           failure: false,
         }));
         const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
