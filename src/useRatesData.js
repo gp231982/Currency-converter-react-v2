@@ -1,32 +1,34 @@
 //
 import { useState, useEffect } from "react";
 
-const useCustomFetch = () => {
+const useRatesData = () => {
   const [state, setState] = useState({
-    isLoading: true,
     fetchedDate: "",
-    failure: false,
+    status: "isLoading",
     currenciesArray: [],
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setState((prevState) => ({ ...prevState, isLoading: true, failure: false }));
+        setState((prevState) => ({
+          ...prevState,
+          status:"isLoading",
+          failure: false,
+        }));
         const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
         const response = await fetch(apiEndpoint);
         const data = await response.json();
         setState((prevState) => ({
           ...prevState,
-          isLoading: false,
+          status: "success",
           fetchedDate: data.date,
           currenciesArray: Object.entries(data.rates),
         }));
       } catch (error) {
         setState((prevState) => ({
           ...prevState,
-          failure: true,
-          isLoading: false,
+          status: "error",
         }));
       }
     };
@@ -36,4 +38,4 @@ const useCustomFetch = () => {
   return state;
 };
 
-export default useCustomFetch;
+export default useRatesData;

@@ -4,7 +4,7 @@ import Form from "./MainContainer/Form";
 import { useState } from "react";
 import ActualDate from "./MainContainer/ActualDate";
 import InfoAfterDataLoad from "./MainContainer/InfoAfterDataLoad";
-import useCustomFetch from "./useCustomFetch";
+import useRatesData from "./useRatesData";
 
 function App() {
   const [selectedFrom, setSelectedFrom] = useState("");
@@ -13,7 +13,7 @@ function App() {
   const [classNameSelectedTo, setclassNameSelectedTo] = useState("");
   const [moneyAmount, setMoneyAmount] = useState("");
   const [result, setResult] = useState("");
-  const { currenciesArray, isLoading, fetchedDate, failure } = useCustomFetch();
+  const { currenciesArray, fetchedDate, status } = useRatesData();
 
   const handleSelectCurrencyFromChange = (selectedFrom) => {
     setSelectedFrom(selectedFrom);
@@ -59,9 +59,9 @@ function App() {
 
   return (
     <div className="App">
-      {isLoading ? (
+      {status === "isLoading" ? (
         <p className="load">Jeszcze chwilkę , waluty się ładują ... 😁🤑</p>
-      ) : !isLoading && failure ? (
+      ) : status!=="isLoading" && status === "error" ? (
         <p className="load failure">
           Przykro mi😟😕, ale coś poszło nie tak. <br /> Sprawdź czy adres jest
           poprawny i spróbuj jeszcze raz....
@@ -83,9 +83,8 @@ function App() {
             resetCalculator={resetCalculator}
           />
           <InfoAfterDataLoad
-            failure={failure}
+            status={status}
             fetchedDate={fetchedDate}
-            isLoading={isLoading}
           />
         </MainContainer>
       )}

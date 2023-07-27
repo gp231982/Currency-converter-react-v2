@@ -1,10 +1,9 @@
-import { useEffect } from "react";
 import { Info, FetchingDate } from "./styled";
 
-const InfoAfterDataLoad = ({ failure, isLoading, fetchedDate }) => {
+const InfoAfterDataLoad = ({ status, fetchedDate }) => {
   return (
     <Info className="infoAfterLoading">
-      {!failure && !isLoading && (
+      {status !== "error" && status !== "isLoading" && (
         <>
           Kursy walut pobierane są z Europejskiego Banku Centralnego
           <br />

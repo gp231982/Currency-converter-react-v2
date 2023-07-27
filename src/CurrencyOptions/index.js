@@ -1,8 +1,8 @@
-import useCustomApiFetch from "../useCustomFetch";
+import useRatesData from "../useRatesData";
 import { currencyNames } from "../currencyNames";
 
 const CurrencyOptions = () => {
-  const { currenciesArray } = useCustomApiFetch();
+  const { currenciesArray } = useRatesData();
 
   return (
     <>
