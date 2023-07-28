@@ -15,7 +15,7 @@ const useRatesData = () => {
           status: "isLoading",
           failure: false,
         }));
-        const apiEndpoint = `https://api.exchangerate.host/latest?base=EUR`;
+        const apiEndpoint = `https://api.exchangerate.host/latest?`;
         const response = await fetch(apiEndpoint);
         const data = await response.json();
         setState((prevState) => ({

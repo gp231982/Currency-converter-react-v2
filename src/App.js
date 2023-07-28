@@ -61,7 +61,7 @@ function App() {
     <div className="App">
       {status === "isLoading" ? (
         <p className="load">Jeszcze chwilkę , waluty się ładują ... 😁🤑</p>
-      ) : status!=="isLoading" && status === "error" ? (
+      ) : status !== "isLoading" && status === "error" ? (
         <p className="load failure">
           Przykro mi😟😕, ale coś poszło nie tak. <br /> Sprawdź czy adres jest
           poprawny i spróbuj jeszcze raz....
@@ -82,10 +82,7 @@ function App() {
             result={result}
             resetCalculator={resetCalculator}
           />
-          <InfoAfterDataLoad
-            status={status}
-            fetchedDate={fetchedDate}
-          />
+          <InfoAfterDataLoad status={status} fetchedDate={fetchedDate} />
         </MainContainer>
       )}
     </div>
