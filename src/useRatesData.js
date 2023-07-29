@@ -17,6 +17,9 @@ const useRatesData = () => {
         }));
         const apiEndpoint = `https://api.exchangerate.host/latest?`;
         const response = await fetch(apiEndpoint);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
         const data = await response.json();
         setState((prevState) => ({
           ...prevState,
